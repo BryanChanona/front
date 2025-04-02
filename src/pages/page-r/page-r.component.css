@@ -1,0 +1,116 @@
+/* Contenedor principal para centrar la card */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin-top: 100px; /* Añadimos separación con el app-header */
+  }
+  
+  /* Estilos de la tarjeta */
+  .card {
+    width: 750px;
+    height: 500px;
+    background: white; /* Color de fondo blanco */
+    border-radius: 15px; /* Borde redondeado */
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #ddd; /* Borde sutil */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efecto hover */
+  }
+  
+  /* Efecto hover para resaltar la tarjeta */
+  .card:hover {
+    transform: translateY(-10px); /* Eleva la tarjeta un poco */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el mouse */
+  }
+  
+  /* Sección superior */
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  /* Círculo para el ritmo cardíaco */
+  .circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 20px solid #EC044B;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Texto dentro del círculo */
+  .temp {
+    font-size: 32px;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Información adicional */
+  .info {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Estilos adicionales */
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2A2A2A;
+    margin: 0;
+  }
+  
+  .status {
+    font-size: 16px;
+    color: #0C538C;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .hora {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  /* Estilos de navegación dentro de la card */
+  .nav-links {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  /* Enlaces dentro de la card */
+  .nav-links a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-links a:hover {
+    color: #EC044B; /* Rojo suave al pasar el mouse */
+  }
+  

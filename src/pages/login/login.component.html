@@ -1,0 +1,24 @@
+<div class="login-container">
+  <!-- Parte de texto (izquierda) -->
+  <div class="login-text">
+    <div class="logo-container">
+      <img src="/logo.png" alt="Logo">
+      <h1>WarmHeart</h1>
+    </div>
+
+    <p>Correo electrónico</p>
+    <input type="email" [(ngModel)]="email" placeholder="Introduce tu correo" required>
+
+    <p>Contraseña</p>
+    <input type="password" [(ngModel)]="password" placeholder="Introduce tu contraseña" required>
+    <p><a routerLink="/supervisorLogin">¿Eres Supervisor?</a></p>
+
+    <button (click)="login()">Iniciar sesión</button>
+    <p>No tienes cuenta? <a routerLink="/registerSupervisor">Crea una cuenta</a></p>
+  </div>
+
+  <!-- Parte de la imagen (derecha) -->
+  <div class="login-image">
+    <img src="login.avif" alt="Login Image">
+  </div>
+</div>

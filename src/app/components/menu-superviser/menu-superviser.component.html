@@ -1,0 +1,37 @@
+<div class="contenidos">
+    <div class="sidenav" [class.collapsed]="collapsed">
+        <div class="logo-container">
+            <button class="logo" (click)="toggleSidenav()">
+                <div class="logo-circle">
+                    <img src="like.png" alt="Logo" class="small-logo">
+                </div>
+                <span class="menu-text" *ngIf="!collapsed">Menú</span>
+            </button>
+        </div>
+        
+        <ul class="sidenav-nav">
+            <li class="sidenav-nav-item">
+                <a routerLink="/homeSuperviser" class="sidenav-nav-link">
+                    <img class="sidenav-nav-icon" src="hogar.png" alt="icon">
+                    <span class="sidenav-nav-text" *ngIf="!collapsed">Inicio</span>
+                </a>
+            </li>
+    
+            
+    
+            <li class="sidenav-nav-item">
+                <a routerLink="/staticSuperviser" class="sidenav-nav-link">
+                    <img class="sidenav-nav-icon" src="grafico-histograma.png" alt="icon">
+                    <span class="sidenav-nav-text" *ngIf="!collapsed">Estadisticas</span>
+                </a>
+            </li>
+    
+            <li class="sidenav-nav-item">
+                <a routerLink="/settingSuperviser" class="sidenav-nav-link">
+                    <img class="sidenav-nav-icon" src="configuracion-de-bluetooth.png" alt="icon">
+                    <span class="sidenav-nav-text" *ngIf="!collapsed" >Configuracion</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>

@@ -1,0 +1,42 @@
+<div class="layout">
+    <!-- Barra lateral -->
+    <app-menu></app-menu>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Header -->
+        <app-header></app-header>
+
+        <!-- Sección Body (Signos Vitales) -->
+        <div class="body-container">
+
+            <div class="section-title"><h2>Ritmo Cardiaco</h2></div>
+            
+            <div class="content-wrapper">
+                
+                <div class="card">
+                    <app-line-chart></app-line-chart>
+                    <div class="card-body">
+                        
+                        <div class="box">
+                            <p><strong>Nombre:</strong> {{nombre}}</p>
+                        </div>
+
+                        <div class="box">
+                            <p><strong>Ritmo cardiaco:</strong> {{ritme}}</p>
+                        </div>
+
+                        <div class="box">
+                            <p><strong>Status:</strong> {{status}}</p>
+                        </div>
+
+                        <div class="box">
+                            <p><strong>Hora:</strong> {{hora}}</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

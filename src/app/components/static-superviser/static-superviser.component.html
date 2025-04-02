@@ -1,0 +1,32 @@
+<div class="layout">
+    <!-- Barra lateral -->
+    <app-menu-superviser></app-menu-superviser>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Header -->
+        <app-header></app-header>
+
+        <!-- Sección Body (Signos Vitales) -->
+        <div class="body-container">
+            <div class="date-filter">
+                <label for="startDate">Filtrar por Fecha:</label>
+                <input type="date" id="startDate" name="startDate">
+                <button onclick="applyDateFilter()">Aplicar</button>
+            </div>
+            
+            <div class="charts-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Signos Vitales</h3>
+                    </div>
+                    <div class="card-body">
+                        <app-grafic-o></app-grafic-o>
+                        <app-grafic-t></app-grafic-t>
+                        <app-line-chart></app-line-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

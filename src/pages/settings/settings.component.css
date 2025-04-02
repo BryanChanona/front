@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidenav {
+    width: 250px;
+    height: 100vh;
+    background: #064270;
+    color: white;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.sidenav .logo-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidenav .logo-container .logo {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.sidenav .logo-container .logo .small-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 13px;
+}
+
+.sidenav .logo-container .logo .menu-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidenav-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.sidenav-nav-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.sidenav-nav-item .sidenav-nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sidenav-nav-item .sidenav-nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.sidenav-nav-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.submenu {
+    list-style: none;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu-item {
+    padding: 5px 0;
+}
+
+.submenu-item .sidenav-nav-link {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.submenu-item .submenu-icon {
+    width: 30px;  /* REDUCCIÓN DEL TAMAÑO DEL ICONO */
+    height: 30px;
+    margin-right: 8px;
+}
+
+.sidenav.collapsed {
+    width: 80px;
+}
+
+.sidenav.collapsed .sidenav-nav-text,
+.sidenav.collapsed .menu-text {
+    display: none;
+}
+
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+
+.brand-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: #000;
+    margin-right: 10px;
+}
+
+.highlight {
+    color: #d32f2f;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #666;
+    margin-left: 10px;
+    margin-right: 860px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}

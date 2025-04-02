@@ -1,0 +1,42 @@
+<div class="layout">
+    <!-- Barra lateral -->
+    <app-menu></app-menu>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Header -->
+        <app-header></app-header>
+        
+        <!-- Sección Body (Signos Vitales) -->
+        <div class="body-container">
+            <div class="body-containers">
+                <h2 class="section-title">Temperatura</h2>
+            </div>
+            <div class="content-wrapper">
+                
+                <div class="card">
+                    <app-grafic-t></app-grafic-t>
+                    <div class="card-body">
+                        
+                        <div class="box">
+                            <p><strong>Nombre:</strong> {{ nombre || 'Cargando...' }}</p>
+                        </div>
+
+                        <div class="box">
+                            <p><strong>Temperatura:</strong> {{ temperature !== null ? temperature + ' °C' : 'Esperando datos...' }}</p>
+                        </div>
+
+                        <div class="box">
+                            <p><strong>Status:</strong> {{ status }}</p>
+                        </div>
+
+                        <div class="box">
+                            <p><strong>Hora:</strong> {{ hora || 'Esperando datos...' }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

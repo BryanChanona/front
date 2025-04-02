@@ -1,0 +1,28 @@
+/* Estilos para la tarjeta */
+.card {
+    width: 950px;
+    height: 390px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 30px auto; /* Centrado */
+  }
+  
+
+  
+  /* Estilos para el cuerpo de la tarjeta */
+  .card-body {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Ajuste al canvas para que ocupe todo el espacio disponible dentro de la tarjeta */
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  

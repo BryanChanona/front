@@ -1,0 +1,30 @@
+<div class="login-container">
+  <!-- Parte de texto (izquierda) -->
+  <div class="login-text">
+    <div class="logo-container">
+      <img src="/logo.png" alt="Logo">
+      <h1>WarmHeart</h1>
+    </div>
+    <h6>Temperatura, Ritmo cardiaco y oxigenación</h6>
+
+    <p>Nombre</p>
+    <input type="nombre" [(ngModel)]="nombre" placeholder="Introduce tu nombre" required>
+    
+    <p>Correo electrónico</p>
+    <input type="email" [(ngModel)]="email" placeholder="Introduce tu correo" required>
+
+    <p>Contraseña</p>
+    <input type="password" [(ngModel)]="password" placeholder="Introduce tu contraseña" required>
+
+    <p>Confirma Contraseña</p>
+    <input type="password" [(ngModel)]="confirmPassword" placeholder="Confirma tu contraseña" required>
+
+    <button (click)="register()">Crear cuenta</button>
+    <p>Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+  </div>
+
+  <!-- Parte de la imagen (derecha) -->
+  <div class="login-image">
+    <img src="login.avif" alt="Login Image">
+  </div>
+</div>

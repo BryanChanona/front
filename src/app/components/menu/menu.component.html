@@ -1,0 +1,63 @@
+<div class="contenidos">
+<div class="sidenav" [class.collapsed]="collapsed">
+    <div class="logo-container">
+        <button class="logo" (click)="toggleSidenav()">
+            <div class="logo-circle">
+                <img src="like.png" alt="Logo" class="small-logo">
+            </div>
+            <span class="menu-text" *ngIf="!collapsed">Menú</span>
+        </button>
+    </div>
+    
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item">
+            <a routerLink="/home" class="sidenav-nav-link">
+                <img class="sidenav-nav-icon" src="casa-icono-silueta.png" alt="icon">
+                <span class="sidenav-nav-text" *ngIf="!collapsed">Inicio</span>
+            </a>
+        </li>
+
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" (click)="toggleActions(); $event.preventDefault()">
+                <img class="sidenav-nav-icon" src="monitor-de-pulso-cardiaco.png" alt="icon">
+                <span class="sidenav-nav-text" *ngIf="!collapsed">Monitorear</span>
+            </a>
+            <ul *ngIf="actionsExpanded" class="submenu">
+                <li class="submenu-item">
+                    <a routerLink="/pulse" class="sidenav-nav-link">
+                        <img class="submenu-icon" src="ritmo-cardiaco.png" alt="icon">
+                        <span class="sidenav-nav-text">Ritmo Cardiaco</span>
+                    </a>
+                </li>
+                <li class="submenu-item">
+                    <a routerLink="/temperature" class="sidenav-nav-link">
+                        <img class="submenu-icon" src="control-de-temperatura.png" alt="icon">
+                        <span class="sidenav-nav-text">Temperatura</span>
+                    </a>
+                </li>
+                <li class="submenu-item">
+                    <a routerLink="/oxigen" class="sidenav-nav-link">
+                        <img class="submenu-icon" src="oxigenacion-por.png" alt="icon">
+                        <span class="sidenav-nav-text">Oxigenacion</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </li>
+
+        <li class="sidenav-nav-item">
+            <a routerLink="/statics" class="sidenav-nav-link">
+                <img class="sidenav-nav-icon" src="estadistica.png" alt="icon">
+                <span class="sidenav-nav-text" *ngIf="!collapsed">Estadisticas</span>
+            </a>
+        </li>
+
+        <li class="sidenav-nav-item">
+            <a routerLink="/settings" class="sidenav-nav-link">
+                <img class="sidenav-nav-icon" src="configuracion-del-navegador.png" alt="icon">
+                <span class="sidenav-nav-text" *ngIf="!collapsed" >Configuracion</span>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>

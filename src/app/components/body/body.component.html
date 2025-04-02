@@ -1,0 +1,23 @@
+<div class="body-container">
+    <h2 class="section-title">Monitoreo de signos vitales ahora</h2>
+
+    <div class="dashboard-grid">
+        <div class="dashboard small">
+            <h3>Temperatura</h3>
+            <app-line-chart></app-line-chart>
+            <p class="value">{{ vitals.temperatura }} °C</p>
+        </div>
+
+        <div class="dashboard small">
+            <h3>Pulso</h3>
+            <app-grafic-t></app-grafic-t>
+            <p class="value">{{ vitals.pulso }} BPM</p>
+        </div>
+
+        <div class="dashboard large">
+            <h3>Oxigenación</h3>
+            <app-grafic-o></app-grafic-o>
+            <p class="value">{{ vitals.oxigenacion }} %</p>
+        </div>
+    </div>
+</div>
