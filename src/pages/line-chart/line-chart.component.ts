@@ -1,37 +1,75 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js/auto'; // Asegúrate de que está importado correctamente
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Chart } from 'chart.js/auto';
+import { WebsocketService } from '../../app/services/websocket.service'; // Asegúrate de tener el servicio de WebSocket importado
 
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent implements AfterViewInit, OnDestroy {
+  private chart: Chart | undefined; // Usamos "private" y la inicializamos con undefined
+  private bpmData: number[] = []; // Array para almacenar los datos del ritmo cardiaco
+  private timeLabels: string[] = []; // Array para almacenar las etiquetas de tiempo
+  private websocketSubscription: any; // Variable para almacenar la suscripción
 
-  public chart: Chart | undefined; // Inicializamos con undefined
+  constructor(private websocketService: WebsocketService) {}
 
-  ngOnInit(): void {
-
-    const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'My First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-      }]
-    };
-
-    // Asegúrate de que el ID del canvas sea correcto
+  ngAfterViewInit(): void {
     const canvas = document.getElementById('chart') as HTMLCanvasElement;
 
-    // Verifica que el canvas esté presente antes de crear la gráfica
     if (canvas) {
-      this.chart = new Chart(canvas, { // Usamos el canvas directamente
-        type: 'line',  // Tipo de gráfica
-        data: data     // Datos para la gráfica
+      // Crear la gráfica
+      this.chart = new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: this.timeLabels, // Etiquetas de tiempo en el eje X
+          datasets: [{
+            label: 'Ritmo Cardiaco (bpm)',
+            data: this.bpmData, // Datos del ritmo cardiaco
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+          }]
+        }
       });
+
+      // Suscribirse a los mensajes de WebSocket para recibir los datos del ritmo cardiaco en tiempo real
+      this.websocketSubscription = this.websocketService.getMessages().subscribe((message) => {
+        if (message.bpm !== undefined) {
+          // Obtener el nuevo ritmo cardiaco (bpm)
+          const newBpm = message.bpm;
+          const currentTime = new Date().toLocaleTimeString(); // Hora actual
+
+          // Agregar el nuevo dato a la gráfica
+          this.bpmData.push(newBpm); // Añadir el ritmo cardiaco al array
+          this.timeLabels.push(currentTime); // Añadir la hora al array de etiquetas
+
+          // Limitar el número de datos mostrados en la gráfica (opcional)
+          if (this.bpmData.length > 10) {
+            this.bpmData.shift(); // Eliminar el primer elemento
+            this.timeLabels.shift(); // Eliminar la primera etiqueta de tiempo
+          }
+
+          // Actualizar la gráfica
+          if (this.chart) {
+            this.chart.update(); // Esto actualizará la gráfica con los nuevos datos
+          }
+        }
+      });
+    } else {
+      console.error('No se encontró el canvas con id "chart"');
+    }
+  }
+
+  ngOnDestroy(): void {
+    // Cancelar la suscripción cuando el componente se destruya
+    if (this.websocketSubscription) {
+      this.websocketSubscription.unsubscribe(); // Desuscribirse del WebSocket
+    }
+
+    if (this.chart) {
+      this.chart.destroy(); // Destruir la gráfica para evitar errores de memoria
     }
   }
 }

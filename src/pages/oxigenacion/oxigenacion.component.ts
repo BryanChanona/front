@@ -5,13 +5,12 @@ import Swal from 'sweetalert2'; // Importa SweetAlert2
 @Component({
   selector: 'app-oxigenacion',
   templateUrl: './oxigenacion.component.html',
-  styleUrl: './oxigenacion.component.css'
+  styleUrls: ['./oxigenacion.component.css']
 })
 export class OxigenacionComponent implements OnInit {
   collapsed = true;
   profilePicUrl = 'https://img.icons8.com/?size=100&id=7rcs0z3sdioE&format=png&color=000000';
   actionsExpanded = false;
-  nombre: string = '';
   oxigenacion: number = 0;
   status: string = '';
   hora: string = 'Cargando...';
@@ -21,12 +20,14 @@ export class OxigenacionComponent implements OnInit {
   ngOnInit() {
     // Escuchar mensajes de WebSocket para obtener la oxigenación
     this.websocketService.getMessages().subscribe((message) => {
-      // Suponiendo que el mensaje tenga la propiedad oxigenacion
-      if (message.oxigenacion !== undefined) {
-        this.oxigenacion = message.oxigenacion;
+      console.log("Mensaje recibido:", message); // Depuración: ver datos recibidos
+
+      // Asegurarse de que el mensaje tenga la propiedad 'spo2' (oxigenación)
+      if (message && message.spo2 !== undefined) {
+        this.oxigenacion = message.spo2; // Cambiar 'oxigenacion' a 'spo2'
         this.hora = new Date().toLocaleTimeString(); // Hora actual
 
-        // Evaluar el estado basado en la oxigenación
+        // Evaluar el estado basado en la oxigenación (spo2)
         if (this.oxigenacion < 90) {
           this.status = 'Bajo';
           
@@ -41,7 +42,7 @@ export class OxigenacionComponent implements OnInit {
           this.status = 'Normal';
         }
       } else {
-        this.status = 'Esperando datos...';
+        this.status = 'Esperando datos...'; // Si no hay oxigenación aún
       }
     });
   }
