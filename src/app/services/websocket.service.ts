@@ -9,7 +9,7 @@ export class WebsocketService {
   private subject: Subject<any>;
 
   constructor() {
-    this.socket = new WebSocket('ws://localhost:8080/ws'); 
+    this.socket = new WebSocket('ws://localhost:8082/ws'); 
 
     this.subject = new Subject();
 
