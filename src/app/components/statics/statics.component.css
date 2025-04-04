@@ -201,38 +201,3 @@
     padding-right: 10px; /* Para evitar que el contenido se toque con la barra de scroll */
 }
 
-
-.date-filter {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px; /* Espacio entre el filtro y la tarjeta */
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.date-filter label {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.date-filter input {
-    padding: 5px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.date-filter button {
-    padding: 5px 10px;
-    background-color: #EC044B;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.date-filter button:hover {
-    background-color: #6c5059;
-}

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'; // Importar SweetAlert2
+import { RegisterService } from '../../app/services/register.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -13,8 +13,9 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
+  id_device: number = 0; // Inicializa id_device si es necesario
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private registerService: RegisterService, private router: Router) {}
 
   register() {
     if (this.password !== this.confirmPassword) {
@@ -26,14 +27,17 @@ export class RegisterComponent {
       return;
     }
 
-    const user = {
-      nombre: this.nombre,
-      email: this.email,
-      password: this.password,
-      name: this.email.split('@')[0], // Se puede usar el correo para el nombre
-    };
+    // Validaciones adicionales antes de hacer la solicitud
+    if (!this.email || !this.nombre || !this.password || !this.id_device) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Por favor, llena todos los campos antes de continuar.',
+      });
+      return;
+    }
 
-    this.http.post('http://localhost:8080/users', user).subscribe(
+    this.registerService.register(this.nombre, this.email, this.password, this.id_device).subscribe(
       (response) => {
         console.log('Usuario registrado exitosamente', response);
         Swal.fire({
@@ -49,7 +53,7 @@ export class RegisterComponent {
         Swal.fire({
           icon: 'error',
           title: 'Usuario no creado',
-          text: 'Hubo un error al intentar registrar el usuario. Intenta nuevamente.',
+          text: error?.message || 'Hubo un error al intentar registrar el usuario. Intenta nuevamente.',
         });
       }
     );

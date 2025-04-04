@@ -33,6 +33,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { SupervisorPageComponent } from '../pages/supervisor-page/supervisor-page.component';
 import { SupervisorLoginComponent } from '../pages/supervisor-login/supervisor-login.component';
 import { SupervisorRegisterComponent } from '../pages/supervisor-register/supervisor-register.component';
+import { GraficRComponent } from '../pages/grafic-r/grafic-r.component';
+import { PageBpmComponent } from '../pages/page-bpm/page-bpm.component';
+import { RegisterSupervisorComponent } from '../pages/register-supervisor/register-supervisor.component';
+import { GraficDatotComponent } from '../pages/grafic-datot/grafic-datot.component';
+import { DateFilterComponent } from './date-filter/date-filter.component';
+import { TableVitalesComponent } from './table-vitales/table-vitales.component';
+import { TableOxigenacionComponent } from './table-oxigenacion/table-oxigenacion.component';
+import { TableTemperatureComponent } from './table-temperature/table-temperature.component';
+import { PresentationComponent } from './presentation/presentation.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +71,16 @@ import { SupervisorRegisterComponent } from '../pages/supervisor-register/superv
     HomeSuperviserComponent,
     SupervisorPageComponent,
     SupervisorLoginComponent,
-    SupervisorRegisterComponent
+    SupervisorRegisterComponent,
+    GraficRComponent,
+    PageBpmComponent,
+    RegisterSupervisorComponent,
+    GraficDatotComponent,
+    DateFilterComponent,
+    TableVitalesComponent,
+    TableOxigenacionComponent,
+    TableTemperatureComponent,
+    PresentationComponent
   ],
   imports: [
     BrowserModule,

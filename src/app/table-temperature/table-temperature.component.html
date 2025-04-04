@@ -1,0 +1,31 @@
+<p>Temperatura</p>
+
+<div class="date-filter">
+    <!-- Campo para seleccionar la fecha -->
+    <label for="date">Fecha:</label>
+    <input type="date" id="date" [(ngModel)]="date" class="form-control">
+    <button (click)="onFilterByDate()" class="btn btn-primary">Filtrar por Fecha</button>
+</div>
+
+<div class="table-container">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Temperatura Registrada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of temperatureData">
+          <td>{{ data.name }}</td>
+          <td>{{ data.date }}</td>
+          <td>{{ data.time }}</td>
+          <td>{{ data.registeredMeasure }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  

@@ -1,44 +1,51 @@
 <div class="settings-container">
-    <h2 class="settings-title">Configuración</h2>
-  
-    <div class="settings-dashboard">
-      <aside class="settings-menu">
-        <ul>
-          <li [class.active]="seccionActiva === 'perfil'" (click)="cambiarSeccion('perfil')">Perfil</li>
-          <li [class.active]="seccionActiva === 'configuracion'" (click)="cambiarSeccion('configuracion')">Personalizar</li>
-          <li [class.active]="seccionActiva === 'salir'" (click)="confirmarSalida()"> 
-            salir
-          </li>
-        </ul>
-      </aside>
-  
-      <main class="settings-content">
-        <!-- Sección de Perfil -->
-        <section class="profile-section" *ngIf="seccionActiva === 'perfil'">
-          <img src="ad.png" alt="Avatar" class="profile-avatar">
-          <div class="profile-info">
-            <h3>Nombre del Usuario</h3>
-            <p>Correo: usuarioexample.com</p>
-          </div>
-        </section>
-  
-        <!-- Sección de Configuración -->
-        <section class="settings-section" *ngIf="seccionActiva === 'configuracion'">
-          <h3>Modificar Media BPM</h3>
-          <input type="number" min="40" max="200" placeholder="Ingresa BPM Maxima">
-          <input type="number" min="40" max="200" placeholder="Ingresa BPM Minima">
-          <button (click)="guardarBPM()">Guardar</button>
-  
-          <h3>Agregar Supervisor</h3>
-          <form (ngSubmit)="agregarSupervisor()">
-            <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="email" name="email" placeholder="Correo Electrónico" required>
-            <input type="password" name="contraseña" placeholder="Contraseña" required>
-            <input type="password" name="contraseñaConfirmar" placeholder="Confirmar contraseña" required>
-            <button type="submit">Agregar</button>
-          </form>
-        </section>
-      </main>
-    </div>
+  <h2 class="settings-title">Configuración</h2>
+
+  <div class="settings-dashboard">
+    <aside class="settings-menu">
+      <ul>
+        <li [class.active]="seccionActiva === 'perfil'" (click)="cambiarSeccion('perfil')">Perfil</li>
+        <li [class.active]="seccionActiva === 'configuracion'" (click)="cambiarSeccion('configuracion')">Personalizar</li>
+        <li [class.active]="seccionActiva === 'premium'" (click)="modal()">Ingresar a premium</li>
+        <li [class.active]="seccionActiva === 'salir'" (click)="confirmarSalida()"> 
+          Salir
+        </li>
+      </ul>
+    </aside>
+
+    <main class="settings-content">
+      <!-- Sección de Perfil -->
+      <section class="profile-section" *ngIf="seccionActiva === 'perfil'">
+        <img src="usuario.png" alt="Avatar" class="profile-avatar">
+        <div class="profile-info">
+          <h3>{{nombre}}</h3>
+          <p>{{email}}</p>
+        </div>
+      </section>
+
+      <!-- Sección de Configuración -->
+      <section class="settings-section" *ngIf="seccionActiva === 'configuracion'">
+        <h3>Agregar Media BPM</h3>
+
+        <input type="number" min="40" max="200" [(ngModel)]="maxBPM" placeholder="Ingresa BPM Máxima">
+
+        <!-- Input para BPM Mínima -->
+        <input type="number" min="40" max="200" [(ngModel)]="minBPM" placeholder="Ingresa BPM Mínima">
+
+        <!-- Botón para guardar BPM -->
+        <button (click)="guardarBPM()">Guardar</button>
+
+
+        <h3>Agregar Supervisor</h3>
+        <form (ngSubmit)="agregarSupervisor()">
+          <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre" required>
+          <input type="email" [(ngModel)]="email" name="email" placeholder="Correo Electrónico" required>
+          <input type="password" [(ngModel)]="contrasena" name="contraseña" placeholder="Contraseña" required>
+          <input type="password" [(ngModel)]="contrasenaConfirmar" name="contraseñaConfirmar" placeholder="Confirmar contraseña" required>
+          <button type="submit">Agregar</button>
+        </form>
+      </section>
+
+    </main>
   </div>
-  
+</div>

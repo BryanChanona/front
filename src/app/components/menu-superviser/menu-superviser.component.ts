@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class MenuSuperviserComponent {
   constructor(private router: Router) {}
-      collapsed = true;
+      collapsed = false;
       profilePicUrl = 'https://img.icons8.com/?size=100&id=7rcs0z3sdioE&format=png&color=000000';
       actionsExpanded = false;
     

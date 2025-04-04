@@ -11,8 +11,8 @@
         <div class="body-container">
             <div class="date-filter">
                 <label for="startDate">Filtrar por Fecha:</label>
-                <input type="date" id="startDate" name="startDate">
-                <button onclick="applyDateFilter()">Aplicar</button>
+                <input type="date" id="startDate" name="startDate" [(ngModel)]="selectedDate"> <!-- Vinculamos a selectedDate -->
+                <button (click)="applyDateFilter()">Aplicar</button>
             </div>
             
             <div class="charts-grid">
@@ -21,6 +21,7 @@
                         <h3>Signos Vitales</h3>
                     </div>
                     <div class="card-body">
+                        <app-grafic-datot [selectedDate]="selectedDate"></app-grafic-datot>
                         <app-grafic-o></app-grafic-o>
                         <app-grafic-t></app-grafic-t>
                         <app-line-chart></app-line-chart>

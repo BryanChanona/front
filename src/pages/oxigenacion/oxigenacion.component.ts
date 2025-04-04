@@ -28,10 +28,15 @@ export class OxigenacionComponent implements OnInit {
         this.hora = new Date().toLocaleTimeString(); // Hora actual
 
         // Evaluar el estado basado en la oxigenación (spo2)
-        if (this.oxigenacion < 90) {
+        if (this.oxigenacion == 0) {
+          Swal.fire({
+            title: '¡Atención!',
+            text: 'Coloque bien el dedo en el sensor.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+          });
+        } else if (this.oxigenacion < 90) {
           this.status = 'Bajo';
-          
-          // Mostrar alerta con SweetAlert2 si la oxigenación es baja
           Swal.fire({
             title: '¡Atención!',
             text: 'La oxigenación está baja. Por favor, tome precauciones.',

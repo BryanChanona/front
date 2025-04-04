@@ -1,0 +1,130 @@
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Encabezado de la tabla */
+  thead {
+    background-color: #064270;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  thead th {
+    padding: 12px;
+    text-align: center;
+  }
+  
+  /* Estilos para las filas de la tabla */
+  tbody tr {
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+  }
+  
+  tbody tr:hover {
+    background-color: #e8f0f9;
+    cursor: pointer;
+  }
+  
+  tbody td {
+    padding: 12px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  /* Bordes de las celdas */
+  th, td {
+    border: 1px solid #ddd;
+  }
+  
+  /* Estilo de las celdas de la tabla */
+  td {
+    background-color: #ffffff;
+  }
+  
+  /* Estilo de la última columna (puedes personalizarla según sea necesario) */
+  tbody td:last-child {
+    color: #064270;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .card {
+      padding: 15px;
+    }
+  
+    table {
+      font-size: 12px;
+    }
+  
+    table th, table td {
+      padding: 8px;
+    }
+  }
+  p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #064270; /* Color inicial */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer; 
+    padding: 5px;/* Cambia el cursor al pasar sobre el texto */
+  }
+  
+  /* Efecto de hover para cambiar colores */
+  p:hover {
+    color: #d32f2f; /* Color cuando el ratón pasa sobre el texto */
+    transform: scale(1.1); /* Efecto de aumentar el tamaño */
+  }
+  
+  /* Efecto al hacer clic */
+ p:active {
+    color: #064270; /* Color al hacer clic */
+    transform: scale(0.9); /* Efecto de reducir el tamaño al hacer clic */
+  }
+
+
+
+  .date-filter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Espacio entre el filtro y la tarjeta */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.date-filter label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.date-filter input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.date-filter button {
+    padding: 5px 10px;
+    background-color: #EC044B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.date-filter button:hover {
+    background-color: #6c5059;
+}

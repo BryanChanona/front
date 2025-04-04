@@ -11,46 +11,6 @@
         margin-bottom: 15px;
     }
 
-    .dashboard-grid {
-        display: flex;
-        flex-direction: column;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 15px;
-
-        .dashboard {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-
-            h3 {
-                font-size: 18px;
-                color: #333;
-                font-weight: 600;
-            }
-
-            .value {
-                font-size: 24px;
-                font-weight: bold;
-                color: #064270;
-            }
-
-            &:hover {
-                transform: scale(1.05);
-            }
-        }
-
-        .small {
-            height: 520px;
-        }
-
-        .large {
-            grid-column: span 2;
-            height: 520px;
-        }
-    }
 }
 
 /* 📱 Responsive para móviles */
@@ -58,4 +18,31 @@
     .dashboard-grid {
         grid-template-columns: 1fr;
     }
+}
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 1200px;
+    text-align: center;
+    height: 500px; /* Altura fija de la tarjeta */
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos internos estén apilados verticalmente */
+}
+
+.card-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column; /* Apila las gráficas de forma vertical */
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1; /* Permite que el cuerpo de la tarjeta crezca y ocupe el espacio restante */
+    overflow-y: auto; /* Activa el scroll vertical cuando el contenido exceda el tamaño */
+    padding-right: 10px; /* Para evitar que el contenido se toque con la barra de scroll */
 }

@@ -1,0 +1,30 @@
+<p>Ritmo Cardiaco</p>
+
+<div class="date-filter">
+    <label for="date">Fecha:</label>
+    <input type="date" id="date" [(ngModel)]="date" class="form-control">
+    <button (click)="onFilterByDate()" class="btn btn-primary">Filtrar por Fecha</button>
+</div>
+  
+
+<table>
+  <thead>
+    <tr>
+      
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Medición Registrada</th>
+      <th>Nombre</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let heartRate of heartRates">
+      
+      <td>{{ heartRate.date }}</td>
+      <td>{{ heartRate.time }}</td>
+      <td>{{ heartRate.registeredMeasure }}</td>
+      <td>{{ heartRate.name }}</td>
+    </tr>
+  </tbody>
+</table>

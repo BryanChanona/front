@@ -116,4 +116,17 @@
     /* Altura mínima */
        background-color: #f4f4f4; /* Color gris */
    }
-   
+
+.method-question {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    padding-right: 20px; /* Para separar un poco del borde */
+    margin-bottom: 10px; /* Espacio debajo del texto */
+}
+
+.method-question p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #064270; /* Color similar al usado en otros textos */
+}   

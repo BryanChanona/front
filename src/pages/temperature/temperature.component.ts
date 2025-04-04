@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WebsocketService } from '../../app/services/websocket.service';
-import Swal from 'sweetalert2'; // Importar SweetAlert2
 
 @Component({
   selector: 'app-temperature',
@@ -26,26 +25,8 @@ export class TemperatureComponent implements OnInit {
         // Evaluar el estado basado en la temperatura
         if (this.temperature != null && this.temperature < 36) {
           this.status = 'Hipotermia';
-          
-          // Alerta para hipotermia
-          Swal.fire({
-            title: '¡Atención!',
-            text: `Tu temperatura es baja (Hipotermia): ${this.temperature}°C. Por favor, toma medidas para calentar tu cuerpo.`,
-            icon: 'warning',
-            confirmButtonText: 'OK'
-          });
-
         } else if (this.temperature != null && this.temperature > 37.5) {
           this.status = 'Fiebre';
-          
-          // Alerta para fiebre
-          Swal.fire({
-            title: '¡Atención!',
-            text: `Tu temperatura es alta (Fiebre): ${this.temperature}°C. Por favor, consulta a un médico.`,
-            icon: 'warning',
-            confirmButtonText: 'OK'
-          });
-
         } else {
           this.status = 'Normal';
         }

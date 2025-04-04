@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'; 
+import { AuthService } from '../../app/services/auth.service';// Importar el servicio
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -12,17 +12,18 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    const credentials = {
-      email: this.email,
-      password: this.password
-    };
-
-    this.http.post('http://localhost:8080/users/login', credentials).subscribe(
+    this.authService.login(this.email, this.password).subscribe(
       (response) => {
         console.log('Usuario autenticado exitosamente', response);
+        
+        // Guardar el token en el localStorage si el backend lo devuelve
+        if (response.token) {
+          localStorage.setItem('token', response.token);
+        }
+
         Swal.fire({
           icon: 'success',
           title: 'Bienvenido',

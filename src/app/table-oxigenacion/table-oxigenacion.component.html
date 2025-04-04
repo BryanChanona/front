@@ -1,0 +1,30 @@
+<p>Oxigenacion</p>
+
+<div class="date-filter">
+    <!-- Campo para seleccionar la fecha -->
+    <label for="date">Fecha:</label>
+    <input type="date" id="date" [(ngModel)]="date" class="form-control">
+    <button (click)="onFilterByDate()" class="btn btn-primary">Filtrar por Fecha</button>
+  </div>
+
+<div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Medición Registrada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let oxigenation of oxigenationData">
+          <td>{{ oxigenation.email }}</td>
+          <td>{{ oxigenation.date }}</td>
+          <td>{{ oxigenation.time }}</td>
+          <td>{{ oxigenation.registeredMeasure }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

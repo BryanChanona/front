@@ -14,6 +14,8 @@ import { SettingSuperviserComponent } from  './components/setting-superviser/set
 import { StaticSuperviserComponent } from './components/static-superviser/static-superviser.component';
 import { HomeSuperviserComponent } from './components/home-superviser/home-superviser.component';
 import { SupervisorLoginComponent } from '../pages/supervisor-login/supervisor-login.component';
+import { PageBpmComponent } from '../pages/page-bpm/page-bpm.component';
+import { RegisterSupervisorComponent } from '../pages/register-supervisor/register-supervisor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -30,7 +32,9 @@ const routes: Routes = [
     {path:"settingSuperviser",component:SettingSuperviserComponent},
     {path: "staticSuperviser", component:StaticSuperviserComponent},
     {path: "homeSuperviser", component:HomeSuperviserComponent},
-    {path: "supervisorLogin", component: SupervisorLoginComponent}
+    {path: "supervisorLogin", component: SupervisorLoginComponent},
+    {path: "pageBpm", component: PageBpmComponent},
+    {path: "registerSupervisor", component: RegisterSupervisorComponent}
 ];
 
 @NgModule({
