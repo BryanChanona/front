@@ -42,6 +42,8 @@ import { TableVitalesComponent } from './table-vitales/table-vitales.component';
 import { TableOxigenacionComponent } from './table-oxigenacion/table-oxigenacion.component';
 import { TableTemperatureComponent } from './table-temperature/table-temperature.component';
 import { PresentationComponent } from './presentation/presentation.component';
+import { FiltradosRComponent } from './filtrados-r/filtrados-r.component';
+import { STemperaturaComponent } from './s-temperatura/s-temperatura.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { PresentationComponent } from './presentation/presentation.component';
     TableVitalesComponent,
     TableOxigenacionComponent,
     TableTemperatureComponent,
-    PresentationComponent
+    PresentationComponent,
+    FiltradosRComponent,
+    STemperaturaComponent
   ],
   imports: [
     BrowserModule,

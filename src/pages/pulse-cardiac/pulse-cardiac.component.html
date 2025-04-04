@@ -21,11 +21,11 @@
                     <div class="card-body">
                         
                         <div class="box">
-                            <p><strong>Ritmo cardiaco:</strong> {{ritme}}</p>
+                            <p><strong>Ritmo:</strong> {{ ritme !== null ? ritme + ' bpm' : 'Sin datos' }}</p>
                         </div>
 
                         <div class="box">
-                            <p><strong>Status:</strong> {{status}}</p>
+                            <p><strong>Estado:</strong> {{ status }}</p>
                         </div>
 
                         <div class="box">

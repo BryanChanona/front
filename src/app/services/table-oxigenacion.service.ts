@@ -26,4 +26,22 @@ export class TableOxigenacionService {
     // Hacer la solicitud GET con los encabezados adecuados
     return this.http.get(this.apiUrl, { headers });
   }
+
+  getSupervisor(): Observable<any> {
+    const token = this.authService.getToken(); 
+
+    if (!token) {
+      throw new Error('Token no encontrado');
+    }
+
+    const userId = this.authService.getUserId(); // Llamada correcta a la función
+
+    if (!userId) {
+      throw new Error('User ID no encontrado');
+    }
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get(`http://localhost:8081/supervisors/${userId}`, { headers });
+}
 }

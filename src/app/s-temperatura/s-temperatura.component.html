@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Temperaturas del Supervisor</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID Temperatura</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Temperatura Registrada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let temp of temperaturas">
+          <td>{{ temp.id_temp }}</td>
+          <td>{{ temp.name }}</td>
+          <td>{{ temp.email }}</td>
+          <td>{{ temp.date }}</td>
+          <td>{{ temp.time }}</td>
+          <td>{{ temp.registeredMeasure }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

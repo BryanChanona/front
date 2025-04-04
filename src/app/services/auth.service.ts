@@ -102,4 +102,14 @@ export class AuthService {
     return JSON.parse(payload); // Parsear el payload a un objeto JSON
   }
   
+  updateUserPremiumStatus(premium: boolean): void {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      let user = JSON.parse(userData);
+      user.premium = premium; // Actualizar el estado premium
+      localStorage.setItem('user', JSON.stringify(user)); // Guardar en localStorage
+    }
+  }
+  
+
 }

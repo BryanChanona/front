@@ -4,6 +4,7 @@ import { AddSupervisorService } from "../../services/addsupervisor.service";
 import Swal from "sweetalert2";
 import { AuthService,User } from '../../services/auth.service'; 
 import { UserService } from "../../services/user.service";
+import { TableOxigenacionService } from "../../services/table-oxigenacion.service";
 
 @Component({
   selector: "app-body-settings",
@@ -18,6 +19,7 @@ export class BodySettingsComponent implements OnInit {
   email: string = "";
   contrasena: string = "";
   contrasenaConfirmar: string = ""; 
+  esPremium: boolean = false;
 
   User: User | null = null;
 
@@ -25,15 +27,15 @@ export class BodySettingsComponent implements OnInit {
     private bpmService: BpmService,
     private addSupervisorService: AddSupervisorService,
     private authService: AuthService,
-    private userService: UserService 
+    private tableOxigenacionService: TableOxigenacionService,
   ) {}
 
   ngOnInit(): void {
     this.authService.getUser().subscribe((user) => {
-      console.log('Usuario autenticado:', user);
       this.User = user;
       this.nombre = user?.name || 'Usuario desconocido';
       this.email = user?.email || 'Correo no disponible';
+      this.esPremium = user?.premium ?? false;
     });
   }
   
@@ -145,8 +147,11 @@ export class BodySettingsComponent implements OnInit {
       cancelButtonText: "Cancelar"
     }).then((result) => {
       if (result.isConfirmed) {
+        this.authService.updateUserPremiumStatus(true);
+        this.esPremium = true;
         window.location.href = "https://buy.stripe.com/test_14k8wxafb6ep6NG7st"; 
       }
     });
   }
+  
 }

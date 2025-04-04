@@ -6,7 +6,9 @@
       <ul>
         <li [class.active]="seccionActiva === 'perfil'" (click)="cambiarSeccion('perfil')">Perfil</li>
         <li [class.active]="seccionActiva === 'configuracion'" (click)="cambiarSeccion('configuracion')">Personalizar</li>
-        <li [class.active]="seccionActiva === 'premium'" (click)="modal()">Ingresar a premium</li>
+        <li *ngIf="!esPremium" [class.active]="seccionActiva === 'premium'" (click)="modal()">
+          Ingresar a premium
+        </li>
         <li [class.active]="seccionActiva === 'salir'" (click)="confirmarSalida()"> 
           Salir
         </li>
