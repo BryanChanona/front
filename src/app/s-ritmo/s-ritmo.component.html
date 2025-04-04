@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Mediciones de Ritmo Cardíaco</h2>
+  
+    <!-- Mostrar los datos en formato JSON para depuración -->
+
+  
+    <table class="table table-bordered" *ngIf="ritmoData.length > 0; else noData">
+      <thead>
+        <tr>
+          <th>ID Usuario</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Ritmo Cardíaco (BPM)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ritmo of ritmoData">
+          <td>{{ ritmo.id_user }}</td>
+          <td>{{ ritmo.date }}</td>
+          <td>{{ ritmo.time }}</td>
+          <td>{{ ritmo.id_bpm }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Mostrar mensaje si no hay datos -->
+    <ng-template #noData>
+      <p class="text-center text-muted">No hay datos disponibles.</p>
+    </ng-template>
+  </div>
+  

@@ -5,16 +5,17 @@
       <img src="/logo.png" alt="Logo">
       <h1>WarmHeart</h1>
     </div>
+    <p class="blue-text">Temperatura, Ritmo cardiaco y oxigenación</p>
 
     <p>Correo electrónico</p>
     <input type="email" [(ngModel)]="email" placeholder="Introduce tu correo" required>
 
     <p>Contraseña</p>
     <input type="password" [(ngModel)]="password" placeholder="Introduce tu contraseña" required>
-    <p><a routerLink="/supervisorLogin">¿Eres Supervisor?</a></p>
+    <p><a routerLink="/supervisorLogin" class="left-align">¿Eres Supervisor?</a></p>
 
     <button (click)="login()">Iniciar sesión</button>
-    <p>No tienes cuenta? <a routerLink="/register">Crea una cuenta</a></p>
+    <p>No tienes cuenta? <a routerLink="/register" class="acount">Crea una cuenta</a></p>
   </div>
 
   <!-- Parte de la imagen (derecha) -->

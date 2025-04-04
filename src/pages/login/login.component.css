@@ -1,95 +1,107 @@
 /* Contenedor principal */
 .login-container {
-    display: flex; /* Organiza los elementos en fila (horizontal) */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    position: relative;
+  display: flex; /* Organiza los elementos en fila (horizontal) */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  position: relative;
 }
-  
-  /* Sección izquierda con el formulario */
+
+/* Sección izquierda con el formulario */
 .login-text {
-    flex: 1; /* Ocupa la mitad de la pantalla */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Alinea los elementos en la parte superior */
-    align-items: flex-start; /* Alinea los elementos hacia la izquierda */
-    margin-left: 20px;
-}
-  
-  /* Contenedor del logo y el título */
-.logo-container {
+  flex: 1; /* Ocupa la mitad de la pantalla */
+  padding: 20px;
   display: flex;
-  align-items: center; /* Alinea la imagen y el texto verticalmente */
-  gap: 10px; /* Espacio entre el logo y el título */
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea los elementos en la parte superior */
+  align-items: flex-start; /* Alinea los elementos hacia la izquierda */
+  margin-left: 80px; /* Ajusta el margen izquierdo para mover el contenido hacia la derecha */
+}
+
+/* Contenedor del logo y el título */
+.logo-container {
+display: flex;
+align-items: center; /* Alinea la imagen y el texto verticalmente */
+gap: 10px; /* Espacio entre el logo y el título */
 }
 
 /* Estilo del logo */
 .logo-container img {
-  width: 50px; /* Ajusta el tamaño del logo */
-  height: 50px;
-  margin-bottom: 25px;
+width: 50px; /* Ajusta el tamaño del logo */
+height: 50px;
+margin-bottom: 25px;
 }
 
 /* Título */
 h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 20px;
+font-size: 2.5rem;
+color: #333;
+margin-bottom: 20px;
 }
 
 /* Estilo para los inputs */
 input {
-  margin-bottom: 15px;
-  padding: 10px;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+margin-bottom: 15px;
+padding: 10px;
+font-size: 1rem;
+width: 100%;
+max-width: 300px;
+border: 1px solid #ccc;
+border-radius: 5px;
 }
 
 /* Estilo para el botón */
 button {
-  background-color: #EC044B;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 320px;
+background-color: #EC044B;
+color: white;
+padding: 10px 20px;
+font-size: 1rem;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+width: 320px;
 }
 
 button:hover {
-  background-color: #a61d1d;
+background-color: #a61d1d;
 }
 
 /* Enlace para crear cuenta */
 p a {
-  color: #007bff;
-  text-decoration: none;
+color: #007bff;
+text-decoration: none;
 }
 
 p a:hover {
-  text-decoration: underline;
+text-decoration: underline;
 }
+
+/* Alineación del enlace "Eres Supervisor?" */
+/* Alineación del enlace "Eres Supervisor?" a la derecha */
+
 
 /* Sección derecha con la imagen */
 .login-image {
-  flex: 1; /* Ocupa la otra mitad de la pantalla */
-  position: fixed; /* Fija la imagen */
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 60%; /* Ocupa la mitad de la pantalla */
-  background-color: #f4f4f4; /* Fondo gris claro para la parte de la imagen */
-  z-index: -1; /* Asegura que la imagen esté detrás del contenido del login */
+flex: 1; /* Ocupa la otra mitad de la pantalla */
+position: fixed; /* Fija la imagen */
+top: 0;
+right: 0;
+height: 100vh;
+width: 60%; /* Ocupa la mitad de la pantalla */
+background-color: #f4f4f4; /* Fondo gris claro para la parte de la imagen */
+z-index: -1; /* Asegura que la imagen esté detrás del contenido del login */
 }
 
 .login-image img {
-  width: 100%; /* Hace que la imagen ocupe todo el espacio disponible */
-  height: 100%; /* Hace que la imagen ocupe todo el espacio disponible */
-  object-fit: cover; /* Ajusta la imagen sin deformarla */
+width: 100%; /* Hace que la imagen ocupe todo el espacio disponible */
+height: 100%; /* Hace que la imagen ocupe todo el espacio disponible */
+object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+/* Alineación del enlace "Crea una cuenta" */
+.acount {
+  margin-top: 20px; /* Ajusta el valor para separar más o menos el enlace */
+}
+.blue-text {
+  color: rgb(19, 19, 171); /* Establece el color del texto a azul */
 }

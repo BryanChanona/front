@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { BpmService } from "../../services/bpm.service"; 
 import { AddSupervisorService } from "../../services/addsupervisor.service";
 import Swal from "sweetalert2";
-import { AuthService,User } from '../../services/auth.service'; 
-import { UserService } from "../../services/user.service";
+import { AuthService, User } from '../../services/auth.service'; 
 import { TableOxigenacionService } from "../../services/table-oxigenacion.service";
+import { PremiumService } from "../../services/premium.service";
 
 @Component({
   selector: "app-body-settings",
@@ -28,17 +28,16 @@ export class BodySettingsComponent implements OnInit {
     private addSupervisorService: AddSupervisorService,
     private authService: AuthService,
     private tableOxigenacionService: TableOxigenacionService,
+    private premiumService: PremiumService
   ) {}
 
   ngOnInit(): void {
     this.authService.getUser().subscribe((user) => {
-      this.User = user;
-      this.nombre = user?.name || 'Usuario desconocido';
-      this.email = user?.email || 'Correo no disponible';
+      this.nombre = this.authService.getUserName() || 'Usuario desconocido';
+      this.email = this.authService.getUserEmail() || 'Correo no disponible';
       this.esPremium = user?.premium ?? false;
     });
   }
-  
 
   cambiarSeccion(seccion: string) {
     this.seccionActiva = seccion;
@@ -68,6 +67,17 @@ export class BodySettingsComponent implements OnInit {
 
   // Método para agregar supervisor
   agregarSupervisor() {
+    // Verificar si el usuario es premium y si puede agregar supervisores
+    if (!this.esPremium && this.User?.id_usuario === 1) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Limite alcanzado',
+        text: 'Solo puedes agregar un supervisor si eres usuario premium.',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+
     if (this.contrasena !== this.contrasenaConfirmar) {
       Swal.fire({
         icon: 'error',
@@ -147,11 +157,30 @@ export class BodySettingsComponent implements OnInit {
       cancelButtonText: "Cancelar"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.authService.updateUserPremiumStatus(true);
-        this.esPremium = true;
-        window.location.href = "https://buy.stripe.com/test_14k8wxafb6ep6NG7st"; 
+        console.log("El usuario confirmó el pago.");
+    
+        const token = localStorage.getItem('token');
+    
+        if (token) {
+          console.log("Enviando a la API el siguiente objeto:", { premium: true });
+          this.premiumService.updatePremiumStatus(true).subscribe(
+            (response) => {
+              console.log("Estado premium actualizado:", response.message);
+              window.location.href = 'https://buy.stripe.com/test_14k8wxafb6ep6NG7st';
+            },
+            (error) => {
+              console.error("Error al actualizar el estado premium:", error);
+            }
+          );
+          
+        } else {
+          console.error("No se encontró el token.");
+        }
       }
     });
   }
+  
+  
+  
   
 }

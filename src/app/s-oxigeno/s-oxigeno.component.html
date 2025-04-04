@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Mediciones de Oxigenación</h2>
+
+  <table class="table table-bordered table-striped text-center" *ngIf="oxigenoData.length > 0; else noData">
+    <thead class="table-dark">
+      <tr>
+        <th>ID Usuario</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Oxígeno Registrado (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let oxigeno of oxigenoData">
+        <td>{{ oxigeno.id_user }}</td>
+        <td>{{ oxigeno.date }}</td>
+        <td>{{ oxigeno.time }}</td>
+        <td>{{ oxigeno.registeredMeasure }}%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Mostrar mensaje si no hay datos -->
+  <ng-template #noData>
+    <div class="alert alert-warning text-center" role="alert">
+      No hay datos disponibles.
+    </div>
+  </ng-template>
+</div>

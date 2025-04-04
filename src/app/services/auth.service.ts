@@ -23,18 +23,37 @@ export class AuthService {
     return this.http.post<any>(this.apiUrl, { email, password }).pipe(
       tap(response => {
         if (response.token) {
-          localStorage.setItem('token', response.token); // Guardar el token
+          localStorage.setItem('token', response.token);
+          console.log('Token guardado en localStorage:', response.token);
+        }
+
+        if (response.user?.name) {
+          localStorage.setItem('name', response.user.name);
+          console.log('Nombre guardado en localStorage:', response.user.name);
+        }
+
+        if (response.user?.email) {
+          localStorage.setItem('email', response.user.email);
+          console.log('Correo guardado en localStorage:', response.user.email);
         }
       })
     );
   }
-
   logout(): void {
     localStorage.removeItem('token'); // Eliminar el token al cerrar sesión
   }
 
   getToken(): string | null {
     return localStorage.getItem('token'); // Obtener el token almacenado
+  }
+
+  getUserName(): string | null {
+    return localStorage.getItem('name');
+  }
+  
+  // Obtener email desde localStorage
+  getUserEmail(): string | null {
+    return localStorage.getItem('email');
   }
 
   // Obtener el id_user desde el token
@@ -51,20 +70,7 @@ export class AuthService {
     }
   }
 
-  getUserName(): string | null {
-    const token = this.getToken();
-    if (!token) return null;
-  
-    try {
-      const payload = this.decodeToken(token); // Decodificar el token y obtener el payload
-      console.log('Payload dentro de getUserName:', payload); // Verificar qué contiene el payload
-      return payload.user?.name;  // Acceder al 'name' dentro del objeto 'user'
-    } catch (error) {
-      console.error('Error al decodificar el token:', error);
-      return null;
-    }
-  }
-  
+ 
   getUser(): Observable<User | null> {
     const userData = localStorage.getItem('user');
     const user = userData ? JSON.parse(userData) : null;
@@ -74,19 +80,12 @@ export class AuthService {
     });
   }
 
-  
-
-  // Obtener el correo del usuario desde el token
-  getUserEmail(): string | null {
-    const token = this.getToken();
-    if (!token) return null;
-
-    try {
-      const payload = this.decodeToken(token);
-      return payload.email;  // Se asume que el correo del usuario está en el payload
-    } catch (error) {
-      console.error('Error al decodificar el token:', error);
-      return null;
+  updateUserPremiumStatus(premium: boolean): void {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      let user = JSON.parse(userData);
+      user.premium = premium; // Actualizar el estado premium
+      localStorage.setItem('user', JSON.stringify(user)); // Guardar en localStorage
     }
   }
 
@@ -102,14 +101,7 @@ export class AuthService {
     return JSON.parse(payload); // Parsear el payload a un objeto JSON
   }
   
-  updateUserPremiumStatus(premium: boolean): void {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      let user = JSON.parse(userData);
-      user.premium = premium; // Actualizar el estado premium
-      localStorage.setItem('user', JSON.stringify(user)); // Guardar en localStorage
-    }
-  }
+  
   
 
 }
