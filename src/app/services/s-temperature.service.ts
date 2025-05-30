@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class STemperatureService {
 
-  private apiUrl = 'http://localhost:8081/temperature/temperatureByIdSupervisor'; // URL de la API sin parámetros
+  private apiUrl = 'http://52.22.134.204:8081/temperature/temperatureByIdSupervisor'; // URL de la API sin parámetros
 
   constructor(private http: HttpClient, private loginService: LoginSuperviserService) { }
 

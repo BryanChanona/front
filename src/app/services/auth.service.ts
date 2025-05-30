@@ -15,7 +15,7 @@ export interface User {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/users/login'; // URL del backend
+  private apiUrl = 'http://54.211.128.115:8080/users/login'; // URL del backend
 
   constructor(private http: HttpClient) {}
 

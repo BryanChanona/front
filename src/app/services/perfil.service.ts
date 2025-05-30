@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class PerfilService {
-  private apiUrl = 'http://localhost:8080/users'; // URL base del backend
+  private apiUrl = 'http://54.211.128.115:8080/users'; // URL base del backend
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

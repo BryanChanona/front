@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class FilterTemperaturaService {
   
-    private apiUrl = 'http://localhost:8081/temperature';  // Actualiza la base URL para obtener los datos de temperatura
+    private apiUrl = 'http://52.22.134.204:8081/temperature';  // Actualiza la base URL para obtener los datos de temperatura
   
     constructor(private http: HttpClient, private authService: AuthService) { }
   

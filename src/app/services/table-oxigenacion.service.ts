@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';  // Asegúrate de importar el serv
 })
 export class TableOxigenacionService {
 
-  private apiUrl = 'http://localhost:8081/oxygen/oxygenById'; 
+  private apiUrl = 'http://52.22.134.204:8081/oxygen/oxygenById'; 
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -42,6 +42,6 @@ export class TableOxigenacionService {
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.get(`http://localhost:8081/supervisors/${userId}`, { headers });
+    return this.http.get(`http://98.82.102.151:8080/supervisors/${userId}`, { headers });
 }
 }

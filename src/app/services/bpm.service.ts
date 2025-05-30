@@ -7,7 +7,7 @@ import { AuthService } from './auth.service'; // Importar el servicio de autenti
   providedIn: 'root'
 })
 export class BpmService {
-  private apiUrl = 'http://localhost:8081/customRhythm/'; // URL del backend para guardar BPM
+  private apiUrl = 'http://52.22.134.204:8081/customRhythm/'; // URL del backend para guardar BPM
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

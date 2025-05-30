@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';  // Asegúrate de importar tu serv
 })
 export class PremiumService {
 
-  private apiUrl = 'http://localhost:8080/users/updateStatus'; 
+  private apiUrl = 'http://54.211.128.115:8080/users/updateStatus'; 
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

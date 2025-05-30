@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';  // Asegúrate de importar el serv
 })
 export class TableTemperatureService {
 
-  private apiUrl = 'http://localhost:8081/temperature/temperatureById'; // La URL de la API
+  private apiUrl = 'http://52.22.134.204:8081/temperature/temperatureById'; // La URL de la API
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

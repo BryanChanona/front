@@ -10,7 +10,7 @@ export class DateFilterService {
   private selectedDateSubject = new BehaviorSubject<string>('');  
   selectedDate$ = this.selectedDateSubject.asObservable();
 
-  private apiUrl = 'http://localhost:8081/heartRate';
+  private apiUrl = 'http://52.22.134.204:8081/heartRate';
 
   constructor(private http: HttpClient, private loginSuperviserService: LoginSuperviserService) {}
 

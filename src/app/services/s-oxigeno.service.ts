@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class SOxigenoService {
 
-  private apiUrl = 'http://localhost:8081/oxygen/oxygenByIdSupervisor'; // URL de la API para oxigenación
+  private apiUrl = 'http://52.22.134.204:8081/oxygen/oxygenByIdSupervisor'; // URL de la API para oxigenación
 
   constructor(private http: HttpClient, private loginService: LoginSuperviserService) { }
 

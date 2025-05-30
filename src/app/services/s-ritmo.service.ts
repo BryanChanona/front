@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class SRitmoService {
 
-  private apiUrl = 'http://localhost:8081/heartRate/heartRateByIdSupervisor'; // URL de la API para ritmo
+  private apiUrl = 'http://52.22.134.204:8081/heartRate/heartRateByIdSupervisor'; // URL de la API para ritmo
 
   constructor(private http: HttpClient, private loginService: LoginSuperviserService) { }
 

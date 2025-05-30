@@ -5,7 +5,7 @@ import { WebsocketService } from '../../app/services/websocket.service'; // Aseg
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.scss']
+  styleUrl: './line-chart.component.css'
 })
 export class LineChartComponent implements AfterViewInit, OnDestroy {
   private chart: Chart | undefined; // Usamos "private" y la inicializamos con undefined

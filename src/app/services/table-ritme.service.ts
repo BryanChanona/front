@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';  // Asegúrate de importar el serv
 })
 export class TableRitmeService {
 
-  private apiUrl = 'http://localhost:8081/heartRate/heartRateById'; // La URL de la API
+  private apiUrl = 'http://352.22.134.204:8081/heartRate/heartRateById'; // La URL de la API
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

@@ -9,7 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class RegisterService {
 
-  private registerUrl = 'http://localhost:8080/users/';  // Cambia esta URL a tu API real
+  private registerUrl = 'http://54.211.128.115:8080/users/';  // Cambia esta URL a tu API real
 
   constructor(private http: HttpClient) {}
 
